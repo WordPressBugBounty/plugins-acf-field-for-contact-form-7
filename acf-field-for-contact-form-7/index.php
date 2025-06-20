@@ -1,1 +1,1 @@
-<?php //Slience is golden
+<?php // phpcs:disable Slience is golden.

@@ -1,28 +1,31 @@
 <?php
 /**
- * Plugin Name:     ACF Field For Contact Form 7
- * Plugin URI:      https://wordpress.org/plugins/acf-field-for-contact-form-7/
- * Description:     Adds a new 'Contact Form 7' field to the popular Advanced Custom Fields plugin.
- * Author:          KrishaWeb
- * Author URI:      https://www.krishaweb.com/
- * Text Domain:     acf-field-for-contact-form-7
- * Domain Path:     /languages
- * Version:         1.6
+ * Plugin Name:       ACF Field For CF7
+ * Plugin URI:        https://wordpress.org/plugins/acf-field-for-contact-form-7/
+ * Description:       Adds a new 'Contact Form 7' field to the popular Advanced Custom Fields plugin.
+ * Requires at least: 5.0
+ * Requires PHP:      7.4
+ * Author:            KrishaWeb
+ * Author URI:        https://www.krishaweb.com/
+ * Text Domain:       acf-field-for-contact-form-7
+ * Domain Path:       /languages
+ * Version:           1.7
+ * License:           GPLv3 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  *
- * @package         ACF_Field_For_Contact_Form_7
+ * @package           ACF_Field_For_Contact_Form_7
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 require_once 'includes/class-' . basename( __FILE__ );
 
 /**
  * Plugin textdomain.
  */
 function acf_cf7_textdomain() {
-	load_plugin_textdomain( 'acf-field-for-contact-form-7', false, basename( dirname( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'acf-field-for-contact-form-7', false, basename( __DIR__ ) . '/languages' );
 }
 add_action( 'plugins_loaded', 'acf_cf7_textdomain' );
 
@@ -46,6 +49,6 @@ register_deactivation_hook( __FILE__, 'acf_cf7_deactivation' );
  * Initialization class.
  */
 function acf_cf7_init() {
-	new ACF_Field_For_Contact_form_7;
+	new ACF_Field_For_Contact_Form_7();
 }
 add_action( 'plugins_loaded', 'acf_cf7_init' );
