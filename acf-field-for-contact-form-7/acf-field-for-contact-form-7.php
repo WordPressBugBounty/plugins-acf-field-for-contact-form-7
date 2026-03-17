@@ -3,52 +3,53 @@
  * Plugin Name:       ACF Field For CF7
  * Plugin URI:        https://wordpress.org/plugins/acf-field-for-contact-form-7/
  * Description:       Adds a new 'Contact Form 7' field to the popular Advanced Custom Fields plugin.
- * Requires at least: 5.0
- * Requires PHP:      7.4
+ * Requires at least: 6.0
+ * Requires PHP:      8.1
+ * Requires Plugins:  advanced-custom-fields, contact-form-7
  * Author:            KrishaWeb
  * Author URI:        https://www.krishaweb.com/
  * Text Domain:       acf-field-for-contact-form-7
- * Domain Path:       /languages
- * Version:           1.7
+ * Version:           1.8
  * License:           GPLv3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  *
  * @package           ACF_Field_For_Contact_Form_7
  */
 
+declare( strict_types=1 );
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-require_once 'includes/class-' . basename( __FILE__ );
+
+// Plugin constants.
+define( 'ACF_CF7_VERSION', '1.8' );
+define( 'ACF_CF7_PATH', plugin_dir_path( __FILE__ ) );
+define( 'ACF_CF7_URL', plugin_dir_url( __FILE__ ) );
+define( 'ACF_CF7_BASENAME', plugin_basename( __FILE__ ) );
+
+require_once ACF_CF7_PATH . 'includes/class-acf-field-for-contact-form-7.php';
 
 /**
- * Plugin textdomain.
+ * Plugin activation callback.
  */
-function acf_cf7_textdomain() {
-	load_plugin_textdomain( 'acf-field-for-contact-form-7', false, basename( __DIR__ ) . '/languages' );
-}
-add_action( 'plugins_loaded', 'acf_cf7_textdomain' );
-
-/**
- * Plugin activation.
- */
-function acf_cf7_activation() {
+function acf_cf7_activation(): void {
 	// Activation code here.
 }
 register_activation_hook( __FILE__, 'acf_cf7_activation' );
 
 /**
- * Plugin deactivation.
+ * Plugin deactivation callback.
  */
-function acf_cf7_deactivation() {
+function acf_cf7_deactivation(): void {
 	// Deactivation code here.
 }
 register_deactivation_hook( __FILE__, 'acf_cf7_deactivation' );
 
 /**
- * Initialization class.
+ * Initialize the plugin on plugins_loaded.
  */
-function acf_cf7_init() {
+function acf_cf7_init(): void {
 	new ACF_Field_For_Contact_Form_7();
 }
 add_action( 'plugins_loaded', 'acf_cf7_init' );
