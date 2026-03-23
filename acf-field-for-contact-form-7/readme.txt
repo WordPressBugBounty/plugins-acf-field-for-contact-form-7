@@ -4,7 +4,7 @@ Tags: acf, contactform7, advanced custom fields, contact form, field
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.1
-Stable tag: 1.8
+Stable tag: 1.8.1
 Copyright: (c) 2012-2026 KrishaWeb Technologies PVT LTD (info@krishaweb.com)
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -147,6 +147,9 @@ If all three are correct and it still doesn't work, email us at support@krishawe
 Email us at support@krishaweb.com — we'd love to hear from you.
 
 == Changelog ==
+
+= 1.8.1 =
+* Fix plugin notice with ACF Pro and PHP deprecation warning.
 
 = 1.8 =
 * Removed ACF 3 and ACF 4 support — now requires ACF 5 or 6.

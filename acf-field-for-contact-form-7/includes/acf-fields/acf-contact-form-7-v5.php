@@ -22,6 +22,13 @@ if ( ! class_exists( 'ACF_Field_For_Contact_Form_7_V5' ) && class_exists( 'acf_f
 	class ACF_Field_For_Contact_Form_7_V5 extends acf_field {
 
 		/**
+		 * Plugin settings.
+		 *
+		 * @var array
+		 */
+		public array $settings = array();
+
+		/**
 		 * Class construct.
 		 *
 		 * @param array $settings Plugin settings array.
