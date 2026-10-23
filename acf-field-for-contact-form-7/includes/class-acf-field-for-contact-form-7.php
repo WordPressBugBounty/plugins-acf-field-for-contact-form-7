@@ -24,13 +24,6 @@ if ( ! class_exists( 'ACF_Field_For_Contact_Form_7' ) ) {
 		private array $settings;
 
 		/**
-		 * Admin notice message template.
-		 *
-		 * @var string
-		 */
-		private string $message = '';
-
-		/**
 		 * Constructor — hooks everything up.
 		 */
 		public function __construct() {
@@ -40,9 +33,6 @@ if ( ! class_exists( 'ACF_Field_For_Contact_Form_7' ) ) {
 				'url'     => plugin_dir_url( __FILE__ ),
 				'path'    => plugin_dir_path( __FILE__ ),
 			);
-
-			// translators: 1: Current plugin name 2: required plugin name.
-			$this->message = __( '"%1$s" requires "%2$s" to be installed and activated.', 'acf-field-for-contact-form-7' );
 
 			// Admin notices for missing dependencies.
 			add_action( 'admin_notices', array( $this, 'acf_cf7_check_acf_is_activate' ) );
@@ -90,7 +80,7 @@ if ( ! class_exists( 'ACF_Field_For_Contact_Form_7' ) ) {
 
 			$notice = wp_sprintf(
 				/* translators: 1: Current plugin name 2: Required plugin name. */
-				esc_html( $this->message ),
+				esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'acf-field-for-contact-form-7' ),
 				'ACF Field For CF7',
 				$plugin_name
 			);
